@@ -1,0 +1,21 @@
+﻿1.直接ubuntu打开 qt-opensource-linux-x64-5.9.1.run 安装即可
+2.头文件设置
+//.pro
+	INCLUDEPATH += /usr/local/include \
+	/usr/local/include/opencv \
+	/usr/local/include/opencv2
+
+	LIBS += /usr/local/lib/*.so
+
+//main.cpp
+
+	#include <QCoreApplication>
+	#include <opencv2/core/core.hpp>
+	#include <opencv2/highgui/highgui.hpp>
+	#include <opencv2/imgproc/imgproc.hpp>
+	#include <iostream>
+	using namespace std;
+	using namespace cv;
+
+
+

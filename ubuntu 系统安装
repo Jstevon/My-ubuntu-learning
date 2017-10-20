@@ -1,0 +1,8 @@
+1.本电脑比较傲娇，bios设置将UEFI关闭，启动盘请使用16.04.2
+2.系统设置-软件和更新-ubuntu软件-下载自（改一下）
+3.有事没事更新一下
+sudo apt-get update
+sudo apt-get upgrade
+
+3.系统设置-软件和更新-附加驱动-使用NVIDIA binary driver....
+4.重启 步骤3

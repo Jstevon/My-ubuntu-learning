@@ -1,0 +1,25 @@
+#1.实现安装编译所需的库
+
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install build-essential libgtk2.0-dev libjpeg-dev libtiff5-dev libjasper-dev libopenexr-dev cmake python-dev python-numpy python-tk libtbb-dev libeigen3-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev libqt4-dev libqt4-opengl-dev sphinx-common texlive-latex-extra libv4l-dev libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev default-jdk ant libvtk5-qt4-dev --fix-missing
+
+#2.然后在网上下载opencv包,解压缩目录创建build文件夹打开终端
+#断网编译！#ippicv_2017u2_lnx_intel64_20170418.tgz 下不了
+	cmake -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D WITH_VTK=ON ..
+
+#3.运行
+	make
+	sudo make install
+	#reboot
+
+#4.2.系统加入opencv库的环境变量（也就是库存放的路径，注意不是解压路径）
+	sudo gedit /etc/ld.so.conf
+#在文件中加上
+	include /usr/loacal/lib
+	include /usr/loacal/include
+     再运行sudo ldconfig,修改bash.bashrc文件，sudo gedit /etc/bash.bashrc
+     在文件末尾加入：
+	PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+	export PKG_CONFIG_PATH
+然后	source /etc/bash.bashrc
